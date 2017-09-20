@@ -1,12 +1,13 @@
 import * as path from 'path'
 import * as fs from 'fs'
 import * as debug from 'debug'
+import { memoize } from 'ramda'
 
 const deb = debug('autorun')
 
 import { Route, Routes } from '@ffra/route-designer'
 
-export const readAndComposeServices = (servicesPath) => {
+export const cRoutesFromServices = (servicesPath) => {
     let routes: any[] = []
 
     fs.readdirSync(servicesPath)
@@ -33,7 +34,7 @@ export const readAndComposeServices = (servicesPath) => {
     return routes
 }
 
-export const readAndComposeEntities = (servicesPath) => {
+export const cEntitiesFromServices = (servicesPath) => {
     let definitions = {}
 
     fs.readdirSync(servicesPath)
@@ -55,3 +56,6 @@ export const readAndComposeEntities = (servicesPath) => {
 
     return definitions
 }
+
+export const composeRoutesFromServices = memoize(cRoutesFromServices)
+export const composeEntitiesFromServices = memoize(cEntitiesFromServices)

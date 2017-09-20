@@ -1,22 +1,15 @@
-import * as Router from 'koa-router'
 import * as path from 'path'
-import * as serve from 'koa-static'
 
 import { IRoute } from '@ffra/route-designer'
 import { generateDoc } from '@ffra/swagger'
-import { readAndComposeServices, readAndComposeEntities } from './files-handler'
 import { initialHook, finalHook } from './hooks'
 
 type koaMiddleware = ((ctx: any, next: any) => Promise<void>) | ((ctx: any, next: any) => Promise<void>)[]
 
-export const startRouter = ({ servicesPath, apiUrl, logger, swaggerRoute, folderServe, firstHook= initialHook, lastHook= finalHook, info={} }) => {
-    let router = new Router()
-
-    let routes = readAndComposeServices(servicesPath)
-
+export const connectWithKoaRouter = ({ routes, router, firstHook= initialHook, lastHook= finalHook, log={info: console.log} }) => {
     routes
         .forEach((r: IRoute) => {
-            logger && logger(` [${r.verb.toUpperCase()}] /${r.version}/${r.path}`)
+            log && log.info(` [${r.verb.toUpperCase()}] /${r.version}/${r.path}`)
 
             let before = r.before as koaMiddleware
             let action = r.action as koaMiddleware
@@ -26,20 +19,19 @@ export const startRouter = ({ servicesPath, apiUrl, logger, swaggerRoute, folder
             router[r.verb](`/${r.version}/${r.path}`, ...hooks)
         })
 
-    swaggerRoute && generateDoc(router, routes, {
+    return router
+}
+
+export const connectDocsWithKoaRouter = ({ routes, router, definitions, route='docs', apiUrl='', info={} }) =>
+    generateDoc(router, routes, {
         basePath: '/',
         info: Object.assign({
             title: '',
             description: '',
             version: ''
         }, info),
-        definitions: readAndComposeEntities(servicesPath)
+        definitions
     }, {
-        docsPath: swaggerRoute,
+        docsPath: route,
         apiUrl
     })
-
-    folderServe && router.get('/*', serve(path.resolve(folderServe)))
-
-    return router
-}

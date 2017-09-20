@@ -1,7 +1,7 @@
 import { APIError, GeneralError } from '@ffra/errors'
 
 export const errorHandlerKoa =
-({ deleteStackWhen, log,  }) => async (ctx, next) => {
+({ deleteStackWhen, log }) => async (ctx, next) => {
 
     try {
         await next()

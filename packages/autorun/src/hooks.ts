@@ -18,6 +18,6 @@ export const finalHook = async (ctx, next) => {
 export const initialHook = async (ctx, next) => {
     ctx.hook = {}
     ctx.hook.start = new Date
-    ctx.debug = debug(`bhpa-request-${Math.random().toString().slice(2)}`)
+    ctx.debug = debug(`request-${Math.random().toString().slice(2)}`)
     await next()
 }
