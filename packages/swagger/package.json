@@ -1,6 +1,6 @@
 {
   "name": "@ffra/swagger",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Swagger helpers to help koa-fast-api",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
@@ -44,7 +44,7 @@
     "release": "Bump package.json version, update CHANGELOG.md, tag a release"
   },
   "dependencies": {
-    "@ffra/errors": "^0.0.6",
+    "@ffra/errors": "^0.0.7",
     "tslib": "^1.7.1"
   },
   "devDependencies": {
