@@ -18,9 +18,13 @@ export const cRoutesFromServices = (servicesPath) => {
             try {
                 let controller = require(filepath).default
 
-                controller = (controller instanceof Routes) ? controller.export() : controller
+                controller = (controller instanceof Routes || controller.export)
+                    ? controller.export()
+                    : controller
                 controller.forEach((r) => {
-                    let route = (r instanceof Route) ? r.compose() : r
+                    let route = (r instanceof Route || r.compose)
+                        ? r.compose()
+                        : r
 
                     routes.push(route)
                     deb(` - route ${route.verb} ${route.path}`)
