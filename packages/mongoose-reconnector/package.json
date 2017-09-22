@@ -1,6 +1,6 @@
 {
   "name": "@ffra/mongoose-reconnector",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Mongoose reconnector with auto tries etc...",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",

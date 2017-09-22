@@ -1,6 +1,6 @@
 {
   "name": "@ffra/error-handler-koa",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Class definitions of common api errors",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
@@ -45,7 +45,7 @@
     "release": "Bump package.json version, update CHANGELOG.md, tag a release"
   },
   "dependencies": {
-    "@ffra/errors": "0.1.5",
+    "@ffra/errors": "0.1.6",
     "tslib": "^1.7.1"
   },
   "devDependencies": {
