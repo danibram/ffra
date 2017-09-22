@@ -1,4 +1,18 @@
-import { composeIdQuery, defaultQuery, errorHandler} from './mongoose-operations'
+import * as debug from 'debug'
+
+const deb = debug('koa-rest-mongoose')
+
+export const composeIdQuery = (param) => (req: any) => {
+    let id = (req.params.id) ? req.params.id : (req.body[param]) ? (req.body[param]) : null
+
+    deb(`Composing query { ${param}: ${id} }`)
+
+    return { [param]: id } as any
+}
+
+export const defaultQuery = (req: any) => {
+    return {} as any
+}
 
 export const FindOne = function (service, id= '_id') {
     return async function(ctx, next) {

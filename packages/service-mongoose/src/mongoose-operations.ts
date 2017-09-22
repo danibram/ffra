@@ -1,9 +1,7 @@
 import { GeneralError, NotFound, Conflict, BadRequest } from '@ffra/errors'
 import * as debug from 'debug'
 
-const deb = debug('mongoose-operations')
-
-import * as mongoose from 'mongoose'
+const deb = debug('service-mongoose')
 
 export const errorHandler = (err, reject?) => {
     let error
@@ -45,20 +43,6 @@ export const errorHandler = (err, reject?) => {
     } else {
         throw error
     }
-}
-
-// Default queries
-
-export const composeIdQuery = (param) => (req: any) => {
-    let id = (req.params.id) ? req.params.id : (req.body[param]) ? (req.body[param]) : null
-
-    deb(`Composing query { ${param}: ${id} }`)
-
-    return { [param]: id } as any
-}
-
-export const defaultQuery = (req: any) => {
-    return {} as any
 }
 
 // Methods

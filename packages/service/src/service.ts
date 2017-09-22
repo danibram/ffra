@@ -16,42 +16,23 @@ export class Service {
         delete: Function
     }
 
-    constructor(Model, name, operations= {}) {
-        this.model = Model
+    constructor(name, model, operations= {}) {
         this.name = name
+        this.model = model
         this.operations = Object.assign({}, {
-            findOne: ()=>({}),
-            find: ()=>({}),
-            create: ()=>({}),
-            update: ()=>({}),
-            delete: ()=>({})
+            findOne: ()=>('Not implemented'),
+            find: ()=>('Not implemented'),
+            create: ()=>('Not implemented'),
+            update: ()=>('Not implemented'),
+            delete: ()=>('Not implemented')
         }, operations)
     }
 
-    async findOne(...args){
-        let result = await (this.operations.findOne as any)(this.model, ...args)
-        return result
-    }
-
-    async find(...args){
-        let result = await (this.operations.find as any)(this.model, ...args)
-        return result
-    }
-
-    async create(...args){
-        let result = await (this.operations.create as any)(this.model, ...args)
-        return result
-    }
-
-    async update(...args){
-        let result = await (this.operations.update as any)(this.model, ...args)
-        return result
-    }
-
-    async delete(...args){
-        let result = await (this.operations.delete as any)(this.model, ...args)
-        return result
-    }
+    findOne = async (...args) => await this.operations.findOne(this.model, ...args)
+    find = async (...args) => await this.operations.find(this.model, ...args)
+    create = async (...args) => await this.operations.create(this.model, ...args)
+    update = async (...args) => await this.operations.update(this.model, ...args)
+    delete = async (...args) => await this.operations.delete(this.model, ...args)
 
     output = (data) => {
         if (Array.isArray(data)){
@@ -62,16 +43,7 @@ export class Service {
         return data
     }
 
-    _output = (data) => {
-        if (data.toObject) {
-            data = data.toObject()
-            data.id = data._id
-            delete data._id
-            delete data.__v
-        }
-
-        return data
-    }
+    _output = data => data
 
     subscribe(event, key, fn) {
         this.subscribers[event].push({ key, fn })

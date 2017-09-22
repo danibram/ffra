@@ -1,9 +1,6 @@
 import * as mongoose from 'mongoose'
-mongoose.Promise = Promise
-
 
 export class ConnectManager {
-
     uri: string
     options: any
     retryTimeMs: number
