@@ -1,15 +1,15 @@
 {
-  "name": "@ffra/error-handler-koa",
+  "name": "@ffra/service-mongoose",
   "version": "0.1.1",
-  "description": "Class definitions of common api errors",
+  "description": "Service definitions with mongoose operations, framework agnostic",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
   "module": "build/module/index.js",
   "repository": "https://github.com/danibram/ffra",
   "keywords": [
-    "error",
-    "handler",
-    "koa"
+    "ffra",
+    "service",
+    "mongoose"
   ],
   "scripts": {
     "info": "npm-scripts-info",
@@ -46,6 +46,9 @@
   },
   "dependencies": {
     "@ffra/errors": "0.1.1",
+    "@ffra/service": "0.1.1",
+    "debug": "^3.0.1",
+    "mongoose": "^4.11.12",
     "tslib": "^1.7.1"
   },
   "devDependencies": {
