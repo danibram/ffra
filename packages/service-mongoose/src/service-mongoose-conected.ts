@@ -12,7 +12,7 @@ export class MService extends Service {
         })
     }
 
-    _output = (data) => {
+    output = (data) => {
         if (data.toObject) {
             data = data.toObject()
             data.id = data._id

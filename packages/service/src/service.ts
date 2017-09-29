@@ -34,16 +34,16 @@ export class Service {
     update = async (...args) => await this.operations.update(this.model, ...args)
     delete = async (...args) => await this.operations.delete(this.model, ...args)
 
-    output = (data) => {
+    _output = (data) => {
         if (Array.isArray(data)){
-            data = data.map(entity => this._output(entity))
+            data = data.map(entity => this.output(entity))
         } else {
-            data = this._output(data)
+            data = this.output(data)
         }
         return data
     }
 
-    _output = data => data
+    output = data => data
 
     subscribe(event, key, fn) {
         this.subscribers[event].push({ key, fn })

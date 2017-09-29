@@ -24,7 +24,7 @@ export const FindOne = function (service, id= '_id') {
 
         ctx.debug && ctx.debug('findOne-out')
 
-        ctx.hook.data = service.output(data)
+        ctx.hook.data = service._output(data)
 
         ctx.debug && ctx.debug('findOne-output')
 
@@ -63,7 +63,7 @@ export const Find = function (service, query= defaultQuery) {
         let { metadata, data } = await service.find(q, limit, skip, count, sort)
         ctx.debug && ctx.debug('find-out')
         ctx.hook.metadata = metadata
-        ctx.hook.data = service.output(data)
+        ctx.hook.data = service._output(data)
         ctx.debug && ctx.debug('find-output')
         await next()
     }
@@ -76,7 +76,7 @@ export const Create = function (service) {
         ctx.debug && ctx.debug('create-in')
         let dataRaw = await service.create(data)
         ctx.debug && ctx.debug('create-out')
-        ctx.hook.data = service.output(dataRaw)
+        ctx.hook.data = service._output(dataRaw)
         ctx.debug && ctx.debug('create-output')
         await next()
     }
@@ -95,7 +95,7 @@ export const Update = function (service, id= '_id') {
         ctx.debug && ctx.debug('update-in')
         let dataRaw = await service.update(query(ctx), data)
         ctx.debug && ctx.debug('update-out')
-        ctx.hook.data = service.output(dataRaw)
+        ctx.hook.data = service._output(dataRaw)
         ctx.debug && ctx.debug('update-output')
         await next()
     }
@@ -108,7 +108,7 @@ export const Delete = function (service, id= '_id') {
         ctx.debug && ctx.debug('delete-in')
         let data = await service.delete(query(ctx))
         ctx.debug && ctx.debug('delete-out')
-        ctx.hook.data = service.output(data)
+        ctx.hook.data = service._output(data)
         ctx.debug && ctx.debug('delete-output')
         await next()
     }
