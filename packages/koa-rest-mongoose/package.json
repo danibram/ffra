@@ -1,6 +1,6 @@
 {
   "name": "@ffra/koa-rest-mongoose",
-  "version": "0.1.11",
+  "version": "0.2.0",
   "description": "Koa rest operations with @ffra/service, using mongoose",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
@@ -45,7 +45,8 @@
     "release": "Bump package.json version, update CHANGELOG.md, tag a release"
   },
   "dependencies": {
-    "@ffra/errors": "^0.1.11",
+    "@ffra/errors": "^0.2.0",
+    "@ffra/route-designer": "^0.2.0",
     "mongoose": "^4.11.12",
     "tslib": "^1.7.1"
   },
