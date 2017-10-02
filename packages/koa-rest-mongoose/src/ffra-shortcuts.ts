@@ -1,8 +1,8 @@
 import { GET, POST, PUT, DELETE, Route } from '@ffra/route-designer'
-import { Find, FindOne, Create, Update, Delete } from '@ffra/koa-rest-mongoose'
+import { Find, FindOne, Create, Update, Delete } from './koa-primitives'
 
 const Rest = {
-    find: (path, service) => GET(`${path}`, Find(service))
+    find: (path, service, ...opts) => GET(`${path}`, Find(service, ...opts))
         .doc({
             description: `Get some ${service.name}s`,
             parameters: [{
@@ -32,7 +32,7 @@ const Rest = {
             }]
         }),
 
-    findOne: (path, service) => GET(`${path}/:id`, FindOne(service))
+    findOne: (path, service, ...opts) => GET(`${path}/:id`, FindOne(service, ...opts))
         .doc({
             description: `Get one ${service.name} by id`,
             parameters: [{
@@ -44,12 +44,12 @@ const Rest = {
             }]
         }),
 
-    create: (path, service) => POST(`${path}`, Create(service))
+    create: (path, service, ...opts) => POST(`${path}`, Create(service, ...opts))
         .doc({
             description: `Create ${service.name}s`
         }),
 
-    update: (path, service) => PUT(`${path}/:id`, Update(service))
+    update: (path, service, ...opts) => PUT(`${path}/:id`, Update(service, ...opts))
         .doc({
             description: `Update ${service.name} by id`,
             parameters: [{
@@ -61,7 +61,7 @@ const Rest = {
             }]
         }),
 
-    delete: (path, service) => DELETE(`${path}/:id`, Delete(service))
+    delete: (path, service, ...opts) => DELETE(`${path}/:id`, Delete(service, ...opts))
         .doc({
             description: `Delete ${service.name} by id`,
             parameters: [{

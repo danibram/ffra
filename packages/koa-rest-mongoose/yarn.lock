@@ -37,6 +37,18 @@
     ansi-styles "^2.2.1"
     esutils "^2.0.2"
 
+"@ffra/errors@^0.1.11":
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/@ffra/errors/-/errors-0.1.11.tgz#399240056e9fe21511d0da480446c45f3f2e6ce7"
+  dependencies:
+    tslib "^1.7.1"
+
+"@ffra/route-designer@^0.1.11":
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/@ffra/route-designer/-/route-designer-0.1.11.tgz#0a5c62d4cfd94eb7ad895f733696efdc2987d1fe"
+  dependencies:
+    tslib "^1.7.1"
+
 "@sindresorhus/df@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@sindresorhus/df/-/df-1.0.1.tgz#c69b66f52f6fcdd287c807df210305dbaf78500d"
