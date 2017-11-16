@@ -1,4 +1,5 @@
 import * as mongoose from 'mongoose'
+(<any>mongoose).Promise = Promise
 
 export class ConnectManager {
     uri: string
