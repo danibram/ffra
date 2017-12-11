@@ -1,6 +1,6 @@
 {
   "name": "@ffra/service-mongoose",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Service definitions with mongoose operations, framework agnostic",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
@@ -45,7 +45,7 @@
     "release": "Bump package.json version, update CHANGELOG.md, tag a release"
   },
   "dependencies": {
-    "@ffra/errors": "^1.0.1",
+    "@ffra/errors": "^1.0.2",
     "@ffra/service": "^1.0.1",
     "debug": "^3.1.0",
     "mongoose": "^4.13.6",
