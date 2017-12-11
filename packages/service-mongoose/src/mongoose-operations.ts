@@ -56,7 +56,7 @@ export const findOne = async function(model, query) {
 
     if (!data) {
         throw new NotFound(
-            `No record of ${model.modelName} found for id '${JSON.stringify(
+            `No record of ${model.modelName} found for '${JSON.stringify(
                 query
             )}'`
         )
