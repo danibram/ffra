@@ -1,6 +1,6 @@
 {
   "name": "@ffra/autorun",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "description": "Autorun function to load and generate dcumentation and routes based in koa, koa-router, koa-static and swagger",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
@@ -46,9 +46,9 @@
     "release": "Bump package.json version, update CHANGELOG.md, tag a release"
   },
   "dependencies": {
-    "@ffra/errors": "^0.4.0",
-    "@ffra/route-designer": "^0.4.0",
-    "@ffra/swagger": "^0.4.0",
+    "@ffra/errors": "^1.0.0",
+    "@ffra/route-designer": "^1.0.0",
+    "@ffra/swagger": "^1.0.0",
     "debug": "^3.1.0",
     "ramda": "^0.25.0",
     "tslib": "^1.8.1"
