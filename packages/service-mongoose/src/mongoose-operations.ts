@@ -1,9 +1,8 @@
 import { GeneralError, NotFound, Conflict, BadRequest } from '@ffra/errors'
 import * as debug from 'debug'
-
 const deb = debug('service-mongoose')
 
-export const errorHandler = (err, reject?) => {
+export const errorHandler = function(err) {
     let error
 
     deb(`Error ${err.name}`)
@@ -16,128 +15,130 @@ export const errorHandler = (err, reject?) => {
             case 'TypeError':
             case 'VersionError':
             case 'BadRequest':
-                 error = new BadRequest(err, err.errors)
-                 break
+                error = new BadRequest(err, err.errors)
+                break
             case 'OverwriteModelError':
-                 error = new Conflict(err)
-                 break
+                error = new Conflict(err)
+                break
             case 'MissingSchemaError':
             case 'DivergentArrayError':
-                 error = new GeneralError(err)
-                 break
+                error = new GeneralError(err)
+                break
             case 'MongoError':
                 if (err.code === 11000) {
-                     error = new Conflict(err)
+                    error = new Conflict(err)
                 }
-                break;
+                break
 
             default:
-                break;
+                break
         }
     } else {
         error = new GeneralError(err)
     }
-
-    if (reject){
-        return reject(error)
-    } else {
-        throw error
-    }
+    throw error
 }
 
 // Methods
 
-export const findOne = (model, query) => new Promise((resolve, reject) => {
-        model
-            .findOne(query)
-            .exec()
-            .then(data => {
-                if (!data) {
-                    reject(
-                        new NotFound(`No record of ${model.modelName} found for id '${JSON.stringify(query)}'`)
-                    )
-                }
-                resolve(data)
-            }, e => errorHandler(e, reject))
-            .catch(errorHandler)
-    })
+export const findOne = async function(model, query) {
+    try {
+        let data = await model.findOne(query).exec()
 
-export const find = function (model, query= {}, limit= 100, skip= 0, count= false, sort= {}) {
-    return new Promise((resolve, reject) => {
-        let q = model
-            .find(query)
-            .skip(skip)
-            .limit(limit)
-            .sort(sort)
+        if (!data) {
+            throw new NotFound(
+                `No record of ${model.modelName} found for id '${JSON.stringify(
+                    query
+                )}'`
+            )
+        }
 
-        const executeQuery = (total?) => q.exec()
-            .then(data => {
-                resolve({
-                    metadata: {total, skip, limit, sort},
-                    data
-                })
-            },
-            reject)
-            .catch(errorHandler)
+        return data
+    } catch (e) {
+        return errorHandler(e)
+    }
+}
 
+export const find = async function(
+    model,
+    query = {},
+    limit = 100,
+    skip = 0,
+    count = false,
+    sort = {}
+) {
+    let q = model
+        .find(query)
+        .skip(skip)
+        .limit(limit)
+        .sort(sort)
+
+    const executeQuery = async function(total?) {
+        let data = await q.exec()
+        return {
+            metadata: { total, skip, limit, sort },
+            data
+        }
+    }
+
+    try {
+        let P = executeQuery
         if (count) {
-            return model
+            let total = await model
                 .where(query)
                 .count()
                 .exec()
-                .then(executeQuery);
+            P = executeQuery.apply(null, total)
         }
 
-        return executeQuery()
-
-    })
+        let data = await P()
+        return data
+    } catch (e) {
+        return errorHandler(e)
+    }
 }
 
-export const create = function (model, data) {
-    return new Promise((resolve, reject) => {
-
-        model.create(data)
-            .then(resolve, reject)
-            .catch((err) => errorHandler(err, reject));
-    })
-
+export const create = async function(model, data) {
+    try {
+        return model.create(data)
+    } catch (err) {
+        errorHandler(err)
+    }
 }
 
-export const update = function (model, query, data, options= {}) {
-    return new Promise((resolve, reject) => {
+export const update = async function(model, query, data, options = {}) {
+    try {
+        const opts = Object.assign(
+            {
+                new: true,
+                overwrite: false,
+                runValidators: true,
+                context: 'query',
+                setDefaultsOnInsert: true
+            },
+            options
+        )
 
-        const opts = Object.assign({
-            new: true,
-            overwrite: false,
-            runValidators: true,
-            context: 'query',
-            setDefaultsOnInsert: true
-        }, options);
-
-        model.findOneAndUpdate(query, data, opts)
-            .exec()
-            .then(resolve, reject)
-            .catch((e) => errorHandler(e, reject))
-    })
+        return model.findOneAndUpdate(query, data, opts).exec()
+    } catch (err) {
+        errorHandler(err)
+    }
 }
 
-export const del = function (model, query) {
-    return new Promise((resolve, reject) => {
-        model
-            .findOne(query)
-            .exec()
-            .then(data => {
-                if (!data) {
-                    reject(
-                        new NotFound(`No record of ${model.modelName} found for id '${JSON.stringify(query)}'`)
-                    )
-                }
-                model
-                    .remove(query)
-                    .exec()
-                    .then(() => resolve(data), reject)
-                    .catch((e) => errorHandler(e, reject))
-            }, reject)
-            .catch((e) => errorHandler(e, reject))
-    })
+export const del = async function(model, query) {
+    try {
+        let data = await model.findOne(query).exec()
+        if (!data) {
+            throw new NotFound(
+                `No record of ${model.modelName} found for id '${JSON.stringify(
+                    query
+                )}'`
+            )
+        }
+
+        await model.remove(query).exec()
+        return data
+    } catch (err) {
+        errorHandler(err)
+    }
 }

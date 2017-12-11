@@ -1,6 +1,3 @@
-import * as mongoose from 'mongoose'
-(<any>mongoose).Promise = Promise
-
 export class ConnectManager {
     uri: string
     options: any
@@ -8,36 +5,37 @@ export class ConnectManager {
     attempsLimit: number
     logger: any
     interval: any = null
-    attemps: any =  0
+    attemps: any = 0
     connected: Boolean = false
+    mongoose: any
+    db: any
 
-    db = mongoose.connection
-
-    constructor(uri, options, logger, retryTimeMs, attempsLimit){
+    constructor(uri, options, logger, retryTimeMs, attempsLimit, mongoose) {
+        this.mongoose = mongoose
         this.uri = uri
         this.options = Object.assign({}, { useMongoClient: true }, options)
         this.retryTimeMs = retryTimeMs
         this.logger = logger
         this.attempsLimit = attempsLimit
 
+        this.db = this.mongoose.connection
         this._setupEvents()
     }
 
-    _setupEvents (){
-
-        this.db.on('connected', (ref) => {
+    _setupEvents() {
+        this.db.on('connected', ref => {
             this.connected = true
             this.logger.info(`MongoDB: Connected`)
         })
 
-        this.db.on('disconnected', (ref) => {
+        this.db.on('disconnected', ref => {
             this.connected = false
             this.reconnect()
         })
 
-        this.db.on('error', (err) => {
+        this.db.on('error', err => {
             this.logger.warn(`MongoDB: ${err}.`)
-            mongoose.disconnect();
+            this.mongoose.disconnect()
         })
 
         this.db.on('open', () => {
@@ -47,19 +45,18 @@ export class ConnectManager {
     }
 
     connect() {
-        mongoose.connect(this.uri, this.options)
-            .catch((err) => {
-                this.attemps ++
-                this.logger.error(`MongoDB: ${err}.`)
-                this.reconnect()
-            })
+        this.mongoose.connect(this.uri, this.options).catch(err => {
+            this.attemps++
+            this.logger.error(`MongoDB: ${err}.`)
+            this.reconnect()
+        })
     }
 
-    reconnect(){
+    reconnect() {
         clearInterval(this.interval)
 
         if (!this.connected) {
-            if (this.attemps > this.attempsLimit){
+            if (this.attemps > this.attempsLimit) {
                 this.logger.error(`MongoDB: Imposible connect to the database`)
                 process.exit()
                 return
@@ -70,10 +67,23 @@ export class ConnectManager {
     }
 }
 
-export const mongoConnector =
-    ({uri, options, logger= console as any, retryTimeMs= 5000, attempsLimit= 10}) =>
-        new Promise((resolve, reject) => {
-            let connector = new ConnectManager(uri, options, logger, retryTimeMs, attempsLimit)
-            connector.connect()
-            mongoose.connection.once('open', resolve )
-        })
+export const mongoConnector = ({
+    uri,
+    options,
+    logger = console as any,
+    retryTimeMs = 5000,
+    attempsLimit = 10,
+    mongoose
+}) =>
+    new Promise((resolve, reject) => {
+        let connector = new ConnectManager(
+            uri,
+            options,
+            logger,
+            retryTimeMs,
+            attempsLimit,
+            mongoose
+        )
+        connector.connect()
+        mongoose.connection.once('open', resolve)
+    })

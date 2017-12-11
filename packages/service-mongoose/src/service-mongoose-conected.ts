@@ -2,7 +2,7 @@ import Service from '@ffra/service'
 import { find, findOne, create, update, del } from './mongoose-operations'
 
 export class MService extends Service {
-    constructor(name, model){
+    constructor(name, model) {
         super(name, model, {
             findOne,
             find,
@@ -12,7 +12,7 @@ export class MService extends Service {
         })
     }
 
-    _output = (data) => {
+    _output = data => {
         if (data.toObject) {
             data = data.toObject()
             data.id = data._id
