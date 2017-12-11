@@ -1,11 +1,15 @@
-import { GeneralError, NotFound, Conflict, BadRequest } from '@ffra/errors'
+import {
+    GeneralError,
+    NotFound,
+    Conflict,
+    BadRequest,
+    APIError
+} from '@ffra/errors'
 import * as debug from 'debug'
 const deb = debug('service-mongoose')
 
 export const errorHandler = function(err) {
     let error
-
-    deb(`Error ${err.name}`)
 
     if (err.name) {
         switch (err.name) {
@@ -36,27 +40,29 @@ export const errorHandler = function(err) {
     } else {
         error = new GeneralError(err)
     }
+
     throw error
 }
 
 // Methods
 
 export const findOne = async function(model, query) {
+    let data
     try {
-        let data = await model.findOne(query).exec()
-
-        if (!data) {
-            throw new NotFound(
-                `No record of ${model.modelName} found for id '${JSON.stringify(
-                    query
-                )}'`
-            )
-        }
-
-        return data
+        data = await model.findOne(query).exec()
     } catch (e) {
-        return errorHandler(e)
+        errorHandler(e)
     }
+
+    if (!data) {
+        throw new NotFound(
+            `No record of ${model.modelName} found for id '${JSON.stringify(
+                query
+            )}'`
+        )
+    }
+
+    return data
 }
 
 export const find = async function(
@@ -100,45 +106,53 @@ export const find = async function(
 
 export const create = async function(model, data) {
     try {
-        return model.create(data)
+        return await model.create(data)
     } catch (err) {
         errorHandler(err)
     }
 }
 
 export const update = async function(model, query, data, options = {}) {
-    try {
-        const opts = Object.assign(
-            {
-                new: true,
-                overwrite: false,
-                runValidators: true,
-                context: 'query',
-                setDefaultsOnInsert: true
-            },
-            options
-        )
+    const opts = Object.assign(
+        {
+            new: true,
+            overwrite: false,
+            runValidators: true,
+            context: 'query',
+            setDefaultsOnInsert: true
+        },
+        options
+    )
 
-        return model.findOneAndUpdate(query, data, opts).exec()
+    try {
+        return await model.findOneAndUpdate(query, data, opts).exec()
     } catch (err) {
         errorHandler(err)
     }
 }
 
 export const del = async function(model, query) {
-    try {
-        let data = await model.findOne(query).exec()
-        if (!data) {
-            throw new NotFound(
-                `No record of ${model.modelName} found for id '${JSON.stringify(
-                    query
-                )}'`
-            )
-        }
+    let data
 
-        await model.remove(query).exec()
-        return data
+    try {
+        data = await model.findOne(query).exec()
     } catch (err) {
         errorHandler(err)
     }
+
+    if (!data) {
+        throw new NotFound(
+            `No record of ${model.modelName} found for id '${JSON.stringify(
+                query
+            )}'`
+        )
+    }
+
+    try {
+        await model.remove(query).exec()
+    } catch (err) {
+        errorHandler(err)
+    }
+
+    return data
 }
