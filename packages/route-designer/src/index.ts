@@ -1,15 +1,15 @@
 export interface IRoute {
-    version: string,
+    version: string
     path: string
     verb: string
     action: Function
     after: Function[]
     before: Function[]
     doc: any
+    metadata: any
 }
 
 export class Route {
-
     route: IRoute = {
         version: 'v1',
         path: '',
@@ -17,16 +17,25 @@ export class Route {
         action: () => {},
         after: [],
         before: [],
-        doc: {}
+        doc: {},
+        metadata: {}
     }
 
-    constructor({version= 'v1', verb, path, action, doc= {}}) {
+    constructor({
+        version = 'v1',
+        verb,
+        path,
+        action,
+        metadata = {},
+        doc = {}
+    }) {
         this.route = Object.assign({}, this.route, {
             version,
             verb,
             path,
             action,
-            doc
+            doc,
+            metadata
         })
         return this
     }
@@ -41,22 +50,22 @@ export class Route {
         return this
     }
 
-    version(v){
+    version(v) {
         this.route.version = v
         return this
     }
 
-    doc(doc){
+    doc(doc) {
         this.route.doc = doc
         return this
     }
 
-    setDoc(key, value){
+    setDoc(key, value) {
         this.route.doc[key] = value
         return this
     }
 
-    compose() {
+    export() {
         return this.route
     }
 }
@@ -64,79 +73,82 @@ export class Route {
 export class Routes {
     routes: Route[]
 
-    constructor(...routes){
+    constructor(...routes: Route[]) {
         this.routes = routes
         return this
     }
 
-    after(...hooks){
-        this.routes.forEach(r => r.after(...hooks) )
+    after(...hooks) {
+        this.routes.forEach(r => r.after(...hooks))
         return this
     }
 
-    before(...hooks){
-        this.routes.forEach(r => r.before(...hooks) )
+    before(...hooks) {
+        this.routes.forEach(r => r.before(...hooks))
         return this
     }
 
-    version(v){
-        this.routes.forEach(r => r.version(v) )
+    version(v) {
+        this.routes.forEach(r => r.version(v))
         return this
     }
 
-    doc(doc){
+    doc(doc) {
         this.routes.forEach(r => {
             let keys = Object.keys(doc)
             keys.forEach(k => {
-               r.setDoc(k, doc[k])
+                r.setDoc(k, doc[k])
             })
         })
         return this
     }
 
-    add(...routes){
-        routes.forEach(route => this.routes.push(route))
+    add(...routes: Route[]) {
+        routes.forEach(route => this.routes.push(route as Route))
         return this
     }
 
-    export(){
+    export() {
         return this.routes
     }
 }
 
-
-export const GET = function(path, action){
+export const GET = function(path, action, metadata?) {
     return new Route({
         verb: 'get',
         path,
-        action
+        action,
+        metadata
     })
 }
 
-export const POST = function(path, action){
+export const POST = function(path, action, metadata?) {
     return new Route({
         verb: 'post',
         path,
-        action
+        action,
+        metadata
     })
 }
 
-export const PUT = function(path, action){
+export const PUT = function(path, action, metadata?) {
     return new Route({
         verb: 'put',
         path,
-        action
+        action,
+        metadata
     })
 }
 
-export const DELETE = function(path, action){
+export const DELETE = function(path, action, metadata?) {
     return new Route({
         verb: 'delete',
         path,
-        action
+        action,
+        metadata
     })
 }
 
-export const group = function (...routes){
+export const group = function(...routes: Route[]) {
     return new Routes(...routes)
 }

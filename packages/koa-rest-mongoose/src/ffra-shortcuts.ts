@@ -11,19 +11,19 @@ const Rest = {
                 'description': `Limit of the search`,
                 'required': false,
                 'type': 'string'
-            },{
+            }, {
                 'name': 'skip',
                 'in': 'query',
                 'description': `Skip of the search`,
                 'required': false,
                 'type': 'string'
-            },{
+            }, {
                 'name': 'count',
                 'in': 'query',
                 'description': `Show total of the search`,
                 'required': false,
                 'type': 'string'
-            },{
+            }, {
                 'name': 'sort',
                 'in': 'query',
                 'description': `Sort params`,
