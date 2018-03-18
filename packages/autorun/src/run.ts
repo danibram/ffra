@@ -2,6 +2,7 @@ import {
     composeRoutesFromServices,
     composeEntitiesFromServices
 } from './files-handler'
+import * as serve from 'koa-static'
 import { connectWithKoaRouter, connectDocsWithKoaRouter } from './router'
 import * as path from 'path'
 
@@ -35,7 +36,7 @@ export const ffrun = ({
     })
 
     if (fallbackServe) {
-        router.get('/*', fallbackServe)
+        router.get('/*', serve(fallbackServe))
     }
 
     return router

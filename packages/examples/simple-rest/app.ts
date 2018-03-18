@@ -1,6 +1,4 @@
 import * as Koa from 'koa'
-import * as cors from '@koa/cors'
-import * as bodyParser from 'koa-bodyparser'
 import * as koaRouter from 'koa-router'
 import * as path from 'path'
 import * as pino from 'pino'

@@ -1,6 +1,6 @@
-import routes from './user.routes'
-import Users from './user.service'
-import User from './user.model'
+import routes from './cat.routes'
+import Cats from './cat.service'
+import Cat from './cat.model'
 
 export default routes
-export { Users, User }
+export { Cats, Cat }

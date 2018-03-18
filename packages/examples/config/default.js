@@ -1,8 +1,4 @@
-const path = require('path')
-const templatesPath = 'templates'
-
 module.exports = {
-    frontEnd: 'http://localhost:3000',
     hostname: 'http://localhost:3001',
     port: 3001,
     host: 'localhost',
@@ -14,14 +10,8 @@ module.exports = {
             reconnectTries: 30
         }
     },
-    filesystem: {
-        tmp: path.resolve('tmp'),
-        images: path.resolve('public/images')
-    },
-    imagesEndpoint: '',
-    locales: ['en_uk', 'es_es'],
     log: {
-        name: 'BHPA-API',
+        name: 'TEST',
         level: 'trace'
     },
     env: 'development'
