@@ -44,23 +44,23 @@
   dependencies:
     arrify "^1.0.1"
 
-"@ffra/errors@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@ffra/errors/-/errors-0.3.1.tgz#df0b603b1df104171697acacfbe160c18f7d82d1"
+"@ffra/errors@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@ffra/errors/-/errors-1.0.2.tgz#dcddc1ff949f419034b62f4382c2e1f6bec402b4"
   dependencies:
-    tslib "^1.8.0"
+    tslib "^1.8.1"
 
-"@ffra/route-designer@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@ffra/route-designer/-/route-designer-0.3.1.tgz#36ccb4c80f54d7c03f64836a1dfb9791c3a790eb"
+"@ffra/route-designer@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@ffra/route-designer/-/route-designer-1.0.3.tgz#c0d4dda99637eb53948a830249e205d25722c9f2"
   dependencies:
-    tslib "^1.8.0"
+    tslib "^1.8.1"
 
-"@ffra/swagger@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@ffra/swagger/-/swagger-0.3.1.tgz#ba9cdff038e8dc734870aad49cbfa8f1e5c05348"
+"@ffra/swagger@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@ffra/swagger/-/swagger-1.0.1.tgz#ebae162e3c7b47161f9393c18053420ffb25eaf3"
   dependencies:
-    tslib "^1.8.0"
+    tslib "^1.8.1"
 
 "@sindresorhus/df@^1.0.1":
   version "1.0.1"
@@ -4645,10 +4645,6 @@ trim-right@^1.0.1:
 tslib@^1.0.0, tslib@^1.7.1:
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.7.1.tgz#bc8004164691923a79fe8378bbeb3da2017538ec"
-
-tslib@^1.8.0:
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.8.0.tgz#dc604ebad64bcbf696d613da6c954aa0e7ea1eb6"
 
 tslib@^1.8.1:
   version "1.8.1"

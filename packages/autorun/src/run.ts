@@ -1,9 +1,25 @@
-import { composeRoutesFromServices, composeEntitiesFromServices } from './files-handler'
+import {
+    composeRoutesFromServices,
+    composeEntitiesFromServices
+} from './files-handler'
 import { connectWithKoaRouter, connectDocsWithKoaRouter } from './router'
 import * as path from 'path'
 
-export const ffrun = ({ router, logger, servicePath, withKoa, withDocs, fallbackServe }: {router: any, logger: any, servicePath: string, withKoa?: boolean, withDocs?: boolean, fallbackServe?: string }) => {
-
+export const ffrun = ({
+    router,
+    logger,
+    servicePath,
+    withKoa,
+    withDocs,
+    fallbackServe
+}: {
+    router: any
+    logger: any
+    servicePath: string
+    withKoa?: boolean
+    withDocs?: boolean
+    fallbackServe?: string
+}) => {
     let routes = composeRoutesFromServices(servicePath)
 
     connectWithKoaRouter({

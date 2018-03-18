@@ -44,18 +44,6 @@
   dependencies:
     arrify "^1.0.1"
 
-"@ffra/errors@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@ffra/errors/-/errors-0.3.1.tgz#df0b603b1df104171697acacfbe160c18f7d82d1"
-  dependencies:
-    tslib "^1.8.0"
-
-"@ffra/route-designer@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@ffra/route-designer/-/route-designer-0.3.1.tgz#36ccb4c80f54d7c03f64836a1dfb9791c3a790eb"
-  dependencies:
-    tslib "^1.8.0"
-
 "@sindresorhus/df@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@sindresorhus/df/-/df-1.0.1.tgz#c69b66f52f6fcdd287c807df210305dbaf78500d"
@@ -4649,10 +4637,6 @@ trim-right@^1.0.1:
 tslib@^1.0.0, tslib@^1.7.1:
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.7.1.tgz#bc8004164691923a79fe8378bbeb3da2017538ec"
-
-tslib@^1.8.0:
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.8.0.tgz#dc604ebad64bcbf696d613da6c954aa0e7ea1eb6"
 
 tslib@^1.8.1:
   version "1.8.1"
