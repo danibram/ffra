@@ -13,5 +13,13 @@
 | [`mongoose-reconnector`](/packages/mongoose-reconnector) | [![npm](https://img.shields.io/npm/v/@ffra/mongoose-reconnector.svg?style=flat-square)](https://www.npmjs.com/package/@ffra/mongoose-reconnector) | Mongoose reconector manager                                             | Generalist    |
 | [`route-designer`](/packages/route-designer)             | [![npm](https://img.shields.io/npm/v/@ffra/route-designer.svg?style=flat-square)](https://www.npmjs.com/package/@ffra/route-designer)             | Router to define routes in a functional style                           | Generalist    |
 | [`service-mongoose`](/packages/service-mongoose)         | [![npm](https://img.shields.io/npm/v/@ffra/service-mongoose.svg?style=flat-square)](https://www.npmjs.com/package/@ffra/service-mongoose)         | Mongoose Service for architectural definition of services with mongoose | Generalist    |
+| [`service-nedb`](/packages/service-nedb)                 | [![npm](https://img.shields.io/npm/v/@ffra/service-nedb.svg?style=flat-square)](https://www.npmjs.com/package/@ffra/service-nedb)                 | Nedb Service for architectural definition of services with nedb         | Generalist    |
 | [`service`](/packages/service)                           | [![npm](https://img.shields.io/npm/v/@ffra/service.svg?style=flat-square)](https://www.npmjs.com/package/@ffra/service)                           | General service that are extend from the other services                 | Generalist    |
 | [`swagger`](/packages/swagger)                           | [![npm](https://img.shields.io/npm/v/@ffra/swagger.svg?style=flat-square)](https://www.npmjs.com/package/@ffra/swagger)                           | Swagger helpers to write easy basic documentation Koa dependant         | Koa dependant |
+
+### Examples
+
+2 basic examples:
+
+*   [`Mongoose`](/packages/examples): run `yarn run mongoose`
+*   [`Nedb`](/packages/examples): run `yarn run nedb`

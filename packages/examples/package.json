@@ -4,8 +4,8 @@
     "description": "",
     "main": "api.js",
     "scripts": {
-        "mongoose": "nodemon --exec ts-node ./rest-mongoose | pino",
-        "nedb": "DEBUG=* nodemon --exec ts-node ./rest-nedb | pino"
+        "mongoose": "DEBUG=@ffra/* nodemon --exec ts-node ./rest-mongoose | pino",
+        "nedb": "DEBUG=@ffra/* nodemon --exec ts-node ./rest-nedb | pino"
     },
     "author": "",
     "license": "ISC",
