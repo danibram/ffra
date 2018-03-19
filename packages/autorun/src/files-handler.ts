@@ -3,7 +3,7 @@ import * as fs from 'fs'
 import * as debug from 'debug'
 import { memoize } from 'ramda'
 
-const deb = debug('autorun')
+const deb = debug('@ffra/autorun')
 
 import { Route, Routes } from '@ffra/route-designer'
 
