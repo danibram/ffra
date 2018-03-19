@@ -1,11 +1,14 @@
 {
-    "lerna": "2.7.1",
+    "lerna": "2.9.0",
     "packages": ["packages/*"],
     "npmClient": "yarn",
     "version": "independent",
     "commands": {
         "publish": {
-            "ignore": ["@ffra/examples"]
+            "ignore": ["@ffra/examples", "@ffra/base"]
+        },
+        "run": {
+            "ignore": ["@ffra/examples", "@ffra/base"]
         }
     }
 }

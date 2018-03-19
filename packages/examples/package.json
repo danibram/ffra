@@ -4,7 +4,8 @@
     "description": "",
     "main": "api.js",
     "scripts": {
-        "dev": "nodemon --exec ts-node ./simple-rest | pino"
+        "mongoose": "nodemon --exec ts-node ./rest-mongoose | pino",
+        "nedb": "DEBUG=* nodemon --exec ts-node ./rest-nedb | pino"
     },
     "author": "",
     "license": "ISC",
@@ -16,6 +17,7 @@
         "@ffra/mongoose-reconnector": "^1.0.1",
         "@ffra/route-designer": "^1.0.1",
         "@ffra/service-mongoose": "^1.0.2",
+        "@ffra/service-nedb": "^1.0.0",
         "@ffra/swagger": "^1.0.1",
         "@koa/cors": "^2.2.1",
         "config": "^1.29.1",
@@ -27,6 +29,7 @@
         "koa-router": "^7.3.0",
         "koa-static": "^4.0.2",
         "mongoose": "^4.13.9",
+        "nedb": "^1.8.0",
         "pino": "^4.10.3",
         "pino-mongodb": "^1.1.2",
         "ts-node": "^4.1.0"
