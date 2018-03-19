@@ -3,6 +3,7 @@ import * as koaRouter from 'koa-router'
 import * as path from 'path'
 import * as pino from 'pino'
 import * as config from 'config'
+import * as bodyParser from 'koa-bodyparser'
 
 import { errorHandlerKoa } from '@ffra/error-handler-koa'
 import { ffrun } from '@ffra/autorun'
@@ -22,6 +23,7 @@ let router = ffrun({
 })
 
 app
+    .use(bodyParser())
     .use(koaLogger(logger))
     .use(
         errorHandlerKoa({

@@ -1,9 +1,11 @@
 import * as debug from 'debug'
 
-const deb = debug('koa-rest-mongoose')
+const deb = debug('@ffra/koa-rest-mongoose')
 
-export const composeIdQuery = (param) => (req: any) => {
-    let id = (req.params.id) ? req.params.id : (req.body[param]) ? (req.body[param]) : null
+export const composeIdQuery = param => (req: any) => {
+    let id = req.params.id
+        ? req.params.id
+        : req.body[param] ? req.body[param] : null
 
     deb(`Composing query { ${param}: ${id} }`)
 
@@ -14,7 +16,7 @@ export const defaultQuery = (req: any) => {
     return {} as any
 }
 
-export const FindOne = function (service, id= '_id') {
+export const FindOne = function(service, id = '_id') {
     return async function(ctx, next) {
         let query = composeIdQuery(id)
 
@@ -32,14 +34,13 @@ export const FindOne = function (service, id= '_id') {
     }
 }
 
-export const Find = function (service, query= defaultQuery) {
-    return async function (ctx, next) {
-
-        let q = (ctx.query.filter) ? ctx.query.filter : query(ctx.request)
-        const limit = (ctx.query.limit) ? parseInt(ctx.query.limit) : 20
-        const skip = (ctx.query.skip) ? parseInt(ctx.query.skip) : 0;
-        const count = (ctx.query.count) ? ctx.query.count : false;
-        const sort = (ctx.query.sort) ? ctx.query.sort : {};
+export const Find = function(service, query = defaultQuery) {
+    return async function(ctx, next) {
+        let q = ctx.query.filter ? ctx.query.filter : query(ctx.request)
+        const limit = ctx.query.limit ? parseInt(ctx.query.limit) : 20
+        const skip = ctx.query.skip ? parseInt(ctx.query.skip) : 0
+        const count = ctx.query.count ? ctx.query.count : false
+        const sort = ctx.query.sort ? ctx.query.sort : {}
 
         if (ctx.query.search) {
             let keys = Object.keys(ctx.query.search)
@@ -69,12 +70,12 @@ export const Find = function (service, query= defaultQuery) {
     }
 }
 
-export const Create = function (service) {
-    return async function (ctx, next) {
-        const data = (ctx.hook && ctx.hook.data) ? ctx.hook.data : ctx.request.body
-
+export const Create = function(service, ...opts) {
+    return async function(ctx, next) {
+        const data =
+            ctx.hook && ctx.hook.data ? ctx.hook.data : ctx.request.body
         ctx.debug && ctx.debug('create-in')
-        let dataRaw = await service.create(data)
+        let dataRaw = await service.create(data, ...opts)
         ctx.debug && ctx.debug('create-out')
         ctx.hook.data = service.output(dataRaw)
         ctx.debug && ctx.debug('create-output')
@@ -82,9 +83,8 @@ export const Create = function (service) {
     }
 }
 
-export const Update = function (service, id= '_id') {
-    return async function (ctx, next) {
-
+export const Update = function(service, id = '_id', ...opts) {
+    return async function(ctx, next) {
         let query = composeIdQuery(id)
         let data = ctx.request.body
 
@@ -93,7 +93,7 @@ export const Update = function (service, id= '_id') {
         }
 
         ctx.debug && ctx.debug('update-in')
-        let dataRaw = await service.update(query(ctx), data)
+        let dataRaw = await service.update(query(ctx), data, ...opts)
         ctx.debug && ctx.debug('update-out')
         ctx.hook.data = service.output(dataRaw)
         ctx.debug && ctx.debug('update-output')
@@ -101,12 +101,12 @@ export const Update = function (service, id= '_id') {
     }
 }
 
-export const Delete = function (service, id= '_id') {
-    return async function (ctx, next) {
+export const Delete = function(service, id = '_id', ...opts) {
+    return async function(ctx, next) {
         let query = composeIdQuery(id)
 
         ctx.debug && ctx.debug('delete-in')
-        let data = await service.delete(query(ctx))
+        let data = await service.delete(query(ctx), ...opts)
         ctx.debug && ctx.debug('delete-out')
         ctx.hook.data = service.output(data)
         ctx.debug && ctx.debug('delete-output')
