@@ -18,8 +18,7 @@
 | [`swagger`](/packages/swagger)                           | [![npm](https://img.shields.io/npm/v/@ffra/swagger.svg?style=flat-square)](https://www.npmjs.com/package/@ffra/swagger)                           | Swagger helpers to write easy basic documentation Koa dependant         | Koa dependant |
 
 ### Examples
-
-2 basic examples:
+There are 2 basic examples under packages/examples :
 
 *   [`Mongoose`](/packages/examples): run `yarn run mongoose`
 *   [`Nedb`](/packages/examples): run `yarn run nedb`
