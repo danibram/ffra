@@ -1,6 +1,6 @@
 {
   "name": "@ffra/error-handler-koa",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Class definitions of common api errors",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",

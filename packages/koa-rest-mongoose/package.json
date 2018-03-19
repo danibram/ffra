@@ -1,6 +1,6 @@
 {
   "name": "@ffra/koa-rest-mongoose",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Koa rest operations with @ffra/service, using mongoose",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "@ffra/errors": "^1.0.2",
-    "@ffra/route-designer": "^1.0.3",
+    "@ffra/route-designer": "^1.0.4",
     "tslib": "^1.9.0"
   },
   "devDependencies": {
