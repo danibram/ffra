@@ -6,7 +6,7 @@ import {
     APIError
 } from '@ffra/errors'
 import * as debug from 'debug'
-const deb = debug('service-mongoose')
+const deb = debug('@ffra/service-mongoose')
 
 export const errorHandler = function(err) {
     let error
@@ -68,16 +68,18 @@ export const findOne = async function(model, query) {
 export const find = async function(
     model,
     query = {},
-    limit = 100,
-    skip = 0,
-    count = false,
-    sort = {}
+    limit?: number,
+    skip?: number,
+    count?: boolean,
+    sort?: { [key: string]: number }
 ) {
-    let q = model
-        .find(query)
-        .skip(skip)
-        .limit(limit)
-        .sort(sort)
+    let q = model.find(query)
+
+    q = skip || skip !== 0 ? q.skip(skip) : q
+
+    q = limit ? q.limit(limit) : q
+
+    q = sort ? q.sort(sort) : q
 
     const executeQuery = async function(total?) {
         let data = await q.exec()
