@@ -13,7 +13,7 @@ export const errorHandlerKoa = ({ deleteStackWhen, log }) => async (
             let oldError = error
             error = new GeneralError(
                 oldError,
-                oldError.errors
+                oldError && oldError.errors
                     ? {
                           errors: oldError.errors
                       }
