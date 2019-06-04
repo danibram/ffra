@@ -13,7 +13,7 @@ export class ConnectManager {
     constructor(uri, options, logger, retryTimeMs, attempsLimit, mongoose) {
         this.mongoose = mongoose
         this.uri = uri
-        this.options = Object.assign({}, { useMongoClient: true }, options)
+        this.options = Object.assign({}, options)
         this.retryTimeMs = retryTimeMs
         this.logger = logger
         this.attempsLimit = attempsLimit
