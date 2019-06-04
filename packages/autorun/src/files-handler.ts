@@ -1,11 +1,10 @@
-import * as path from 'path'
-import * as fs from 'fs'
+import { Route, Routes } from '@ffra/route-designer'
 import * as debug from 'debug'
+import * as fs from 'fs'
+import * as path from 'path'
 import { memoize } from 'ramda'
 
 const deb = debug('@ffra/autorun')
-
-import { Route, Routes } from '@ffra/route-designer'
 
 export const cRoutesFromServices = servicesPath => {
     let routes: any[] = []
@@ -29,6 +28,7 @@ export const cRoutesFromServices = servicesPath => {
             })
         } catch (e) {
             console.error(`Error Loading ${filepath}: ${e}`)
+            console.error(e.stack)
         }
     })
 
