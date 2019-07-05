@@ -1,6 +1,6 @@
 {
   "name": "@ffra/service",
-  "version": "1.0.1",
+  "version": "3.0.0",
   "description": "Class definitions of common api errors",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",

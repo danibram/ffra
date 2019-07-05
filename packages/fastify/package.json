@@ -1,6 +1,6 @@
 {
     "name": "@ffra/fastify",
-    "version": "1.0.0",
+    "version": "3.0.0",
     "description": "Class definitions of common api errors",
     "main": "build/main/index.js",
     "typings": "build/main/index.d.ts",
@@ -44,7 +44,7 @@
         "release": "Bump package.json version, update CHANGELOG.md, tag a release"
     },
     "dependencies": {
-        "@ffra/route-designer": "^1.0.4",
+        "@ffra/route-designer": "^3.0.0",
         "fastify": "^2.6.0",
         "fastify-blipp-log": "^1.0.0",
         "fastify-helmet": "^3.0.1",
