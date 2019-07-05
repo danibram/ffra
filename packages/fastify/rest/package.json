@@ -1,0 +1,6 @@
+{
+    "name": "@ffra/fastify/rest",
+    "private": true,
+    "main": "../build/main/rest/index.js",
+    "module": "../build/module/rest/index.js"
+}
