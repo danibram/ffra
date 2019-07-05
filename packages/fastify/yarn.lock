@@ -4921,11 +4921,6 @@ q@^1.4.1, q@^1.5.1:
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
   integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
 
-querystringparser@0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/querystringparser/-/querystringparser-0.1.1.tgz#9e5f4ea144641dba638d9db71869d267527dc380"
-  integrity sha1-nl9OoURkHbpjjZ23GGnSZ1J9w4A=
-
 quick-format-unescaped@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/quick-format-unescaped/-/quick-format-unescaped-3.0.2.tgz#0137e94d8fb37ffeb70040535111c378e75396fb"

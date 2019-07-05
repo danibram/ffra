@@ -1,5 +1,5 @@
-import { generateDoc } from '@ffra/koa/swagger'
 import { IRoute } from '@ffra/route-designer'
+import { generateDoc } from '../swagger'
 import { finalHook, initialHook } from './hooks'
 
 type koaMiddleware =

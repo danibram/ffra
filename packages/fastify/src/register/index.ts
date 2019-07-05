@@ -1,12 +1,10 @@
 import { Route, Routes } from '@ffra/route-designer'
 import * as debug from 'debug'
+import * as fastify from 'fastify'
 import * as fp from 'fastify-plugin'
 import * as fs from 'fs'
 import { IncomingMessage, Server, ServerResponse } from 'http'
 import * as path from 'path'
-
-// require fastify typings
-import fastify = require('fastify')
 
 const deb = debug('@ffra/fastify/register')
 

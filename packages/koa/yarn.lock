@@ -49,13 +49,6 @@
   dependencies:
     arrify "^1.0.1"
 
-"@ffra/swagger@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@ffra/swagger/-/swagger-1.0.1.tgz#ebae162e3c7b47161f9393c18053420ffb25eaf3"
-  integrity sha512-WmTN/WQaU9M+UpvZNJ7U2D8a1zBGf/RVn5yicjYFymgm+9REIP8mXCnyuVQ4Hixgx1KjoPBsT+igXGX/mVMk5Q==
-  dependencies:
-    tslib "^1.8.1"
-
 "@sindresorhus/df@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@sindresorhus/df/-/df-1.0.1.tgz#c69b66f52f6fcdd287c807df210305dbaf78500d"

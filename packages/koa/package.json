@@ -45,7 +45,6 @@
     },
     "dependencies": {
         "@ffra/errors": "^1.0.2",
-        "@ffra/koa": "^1.0.2",
         "@ffra/route-designer": "^1.0.4",
         "debug": "^3.1.0",
         "koa-static": "^4.0.2",
