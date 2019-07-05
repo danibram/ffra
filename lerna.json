@@ -1,12 +1,23 @@
 {
-    "packages": ["packages/*"],
+    "packages": [
+        "packages/*"
+    ],
     "npmClient": "yarn",
     "command": {
         "publish": {
-            "ignoreChanges": ["@ffra/fastify-examples", "@ffra/koa-examples", "@ffra/base"]
+            "ignoreChanges": [
+                "@ffra/fastify-examples",
+                "@ffra/koa-examples",
+                "@ffra/base"
+            ]
         },
         "run": {
-            "ignore": ["@ffra/fastify-examples", "@ffra/koa-examples", "@ffra/base"]
+            "ignore": [
+                "@ffra/fastify-examples",
+                "@ffra/koa-examples",
+                "@ffra/base"
+            ]
         }
-    }
+    },
+    "version": "0.0.0"
 }
