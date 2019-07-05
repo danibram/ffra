@@ -1,14 +1,23 @@
 {
-    "lerna": "2.9.0",
-    "packages": ["packages/*"],
+    "packages": [
+        "packages/*"
+    ],
     "npmClient": "yarn",
     "version": "independent",
-    "commands": {
+    "command": {
         "publish": {
-            "ignore": ["@ffra/fastify-examples", "@ffra/koa-examples", "@ffra/base"]
+            "ignoreChanges": [
+                "@ffra/fastify-examples",
+                "@ffra/koa-examples",
+                "@ffra/base"
+            ]
         },
         "run": {
-            "ignore": ["@ffra/fastify-examples", "@ffra/koa-examples", "@ffra/base"]
+            "ignore": [
+                "@ffra/fastify-examples",
+                "@ffra/koa-examples",
+                "@ffra/base"
+            ]
         }
     }
 }
