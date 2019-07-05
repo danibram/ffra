@@ -1,0 +1,6 @@
+{
+    "name": "@ffra/koa/error-handler",
+    "private": true,
+    "main": "../build/main/error-handler/index.js",
+    "module": "../build/module/error-handler/index.js"
+}

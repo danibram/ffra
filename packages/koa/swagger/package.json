@@ -1,0 +1,6 @@
+{
+    "name": "@ffra/koa/swagger",
+    "private": true,
+    "main": "../build/main/swagger/index.js",
+    "module": "../build/module/swagger/index.js"
+}
