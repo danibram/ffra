@@ -1,8 +1,6 @@
-import * as path from 'path'
-
+import { generateDoc } from '@ffra/koa/swagger'
 import { IRoute } from '@ffra/route-designer'
-import { generateDoc } from '@ffra/swagger'
-import { initialHook, finalHook } from './hooks'
+import { finalHook, initialHook } from './hooks'
 
 type koaMiddleware =
     | ((ctx: any, next: any) => Promise<void>)
