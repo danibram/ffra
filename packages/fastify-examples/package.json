@@ -34,5 +34,6 @@
         "prettier": "^1.9.2",
         "tslint": "^5.8.0",
         "typescript": "^2.6.2"
-    }
+    },
+    "gitHead": "b4413e1852359da061e8733330b783c1a648bbb2"
 }
