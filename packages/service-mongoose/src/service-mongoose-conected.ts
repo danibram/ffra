@@ -1,5 +1,5 @@
 import Service from '@ffra/service'
-import { find, findOne, create, update, del } from './mongoose-operations'
+import { create, del, find, findOne, update } from './mongoose-operations'
 
 export class MService extends Service {
     constructor(name, model) {

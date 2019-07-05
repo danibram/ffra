@@ -1,10 +1,4 @@
-import {
-    GeneralError,
-    NotFound,
-    Conflict,
-    BadRequest,
-    APIError
-} from '@ffra/errors'
+import { BadRequest, Conflict, GeneralError, NotFound } from '@ffra/errors'
 import * as debug from 'debug'
 const deb = debug('@ffra/service-mongoose')
 

@@ -20,7 +20,9 @@ export class APIError extends Error {
         this.message =
             (msg as any) instanceof Error
                 ? (msg as any).message || 'Error'
-                : typeof msg === 'object' ? msg.message || 'Error' : msg
+                : typeof msg === 'object'
+                ? msg.message || 'Error'
+                : msg
 
         this.statusCode = statusCode
         this.data = data

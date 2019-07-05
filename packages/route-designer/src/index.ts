@@ -55,6 +55,11 @@ export class Route {
         return this
     }
 
+    meta(meta) {
+        this.route.metadata = meta
+        return this
+    }
+
     doc(doc) {
         this.route.doc = doc
         return this

@@ -1,5 +1,5 @@
 import { test } from 'ava'
-import { GET, POST, PUT, DELETE, group, Route, Routes } from './'
+import { DELETE, GET, group, POST, PUT, Route } from './'
 
 test('GET definition', t => {
     let route = GET('hello', () => ({}))
