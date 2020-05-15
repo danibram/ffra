@@ -12,27 +12,27 @@ export default {
                     properties: {
                         filter: {
                             type: 'object',
-                            description: `Limit of the search`
+                            description: `Limit of the search`,
                         },
                         limit: {
                             type: 'string',
-                            description: `Limit of the search`
+                            description: `Limit of the search`,
                         },
                         skip: {
                             description: `Skip of the search`,
-                            type: 'string'
+                            type: 'string',
                         },
                         count: {
                             description: `Show total of the search`,
-                            type: 'string'
+                            type: 'string',
                         },
                         sort: {
                             description: `Sort params`,
-                            type: 'string'
-                        }
-                    }
-                }
-            }
+                            type: 'string',
+                        },
+                    },
+                },
+            },
         }),
 
     findOne: (path, service, ...opts) =>
@@ -44,18 +44,18 @@ export default {
                     properties: {
                         id: {
                             description: `ID of ${service.name}`,
-                            type: 'string'
-                        }
-                    }
-                }
-            }
+                            type: 'string',
+                        },
+                    },
+                },
+            },
         }),
 
     create: (path, service, ...opts) =>
         POST(`${path}`, Create(service, ...opts)).meta({
             schema: {
-                description: `Create ${service.name}s`
-            }
+                description: `Create ${service.name}s`,
+            },
         }),
 
     update: (path, service, ...opts) =>
@@ -67,11 +67,11 @@ export default {
                     properties: {
                         id: {
                             description: `ID of ${service.name}`,
-                            type: 'string'
-                        }
-                    }
-                }
-            }
+                            type: 'string',
+                        },
+                    },
+                },
+            },
         }),
 
     delete: (path, service, ...opts) =>
@@ -83,10 +83,10 @@ export default {
                     properties: {
                         id: {
                             description: `ID of ${service.name}`,
-                            type: 'string'
-                        }
-                    }
-                }
-            }
-        })
+                            type: 'string',
+                        },
+                    },
+                },
+            },
+        }),
 }

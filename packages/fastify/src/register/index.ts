@@ -15,8 +15,13 @@ declare module 'fastify' {
         HttpResponse = ServerResponse
     > {}
 }
-const ffra = function(fastify, options, next) {
-    fs.readdirSync(options.services).forEach(f => {
+const ffra = function (fastify, options, next) {
+    fastify.decorateRequest('ctx', {
+        hook: {},
+        debug: null,
+    })
+
+    fs.readdirSync(options.services).forEach((f) => {
         let filepath = path.join(options.services, f)
         deb(`Loading file ${filepath}`)
 
@@ -28,7 +33,7 @@ const ffra = function(fastify, options, next) {
                     ? controller.export()
                     : controller
 
-            controller.forEach(r => {
+            controller.forEach((r) => {
                 let route = r instanceof Route || r.export ? r.export() : r
 
                 fastify.route({
@@ -40,26 +45,36 @@ const ffra = function(fastify, options, next) {
                     schema: Object.assign({}, route.doc, route.metadata.schema),
                     attachValidation: route.metadata.schema ? true : false,
                     preHandler: [
-                        async (f, req, res) => {
-                            f.ctx = {}
+                        async (f, req, res, done) => {
+                            req.ctx.debug = debug(
+                                `request-${Math.random().toString().slice(2)}`
+                            )
+
                             return
                         },
-                        ...route.after
-                    ].map(fn => fn.bind(null, fastify)),
+                        ...route.before,
+                    ].map((fn) => fn.bind(null, fastify)),
                     handler: route.action.bind(null, fastify),
-                    preSerialization: (async (f, req, res, payload) => {
-                        if (f.ctx.raw) {
-                            return payload
-                        } else {
-                            return {
-                                metadata: {
-                                    ...(f.ctx.metadata ? f.ctx.metadata : {}),
-                                    time: res.getResponseTime()
-                                },
-                                data: payload
+                    preSerialization: [
+                        ...route.after,
+                        async (f, req, res, payload) => {
+                            if (req.ctx.raw) {
+                                return payload
+                            } else {
+                                return {
+                                    metadata: {
+                                        ...(req.ctx.metadata
+                                            ? req.ctx.metadata
+                                            : {}),
+                                        time: res.getResponseTime(),
+                                    },
+                                    data: req.ctx.hook.data
+                                        ? req.ctx.hook.data
+                                        : payload,
+                                }
                             }
-                        }
-                    }).bind(null, fastify)
+                        },
+                    ].map((fn) => fn.bind(null, fastify)),
                 })
 
                 deb(` - route ${route.verb} ${route.path}`)
@@ -74,7 +89,7 @@ const ffra = function(fastify, options, next) {
 }
 
 export const ffraPlugin = fp(ffra, {
-    name: 'fastify-ffra'
+    name: 'fastify-ffra',
 }) as fastify.Plugin<
     Server,
     IncomingMessage,
