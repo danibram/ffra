@@ -1,6 +1,6 @@
 {
     "name": "@ffra/koa-examples",
-    "version": "3.0.0",
+    "version": "3.0.2",
     "description": "",
     "main": "api.js",
     "scripts": {
@@ -10,12 +10,12 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "@ffra/errors": "^3.0.0",
-        "@ffra/koa": "^3.0.0",
+        "@ffra/errors": "^3.0.2",
+        "@ffra/koa": "^3.0.2",
         "@ffra/mongoose-reconnector": "^1.0.1",
-        "@ffra/route-designer": "^3.0.0",
-        "@ffra/service-mongoose": "^3.0.0",
-        "@ffra/service-nedb": "^3.0.0",
+        "@ffra/route-designer": "^3.0.2",
+        "@ffra/service-mongoose": "^3.0.2",
+        "@ffra/service-nedb": "^3.0.2",
         "@koa/cors": "^2.2.1",
         "config": "^1.29.1",
         "debug": "^3.1.0",

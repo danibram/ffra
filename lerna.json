@@ -1,13 +1,24 @@
 {
-    "packages": ["packages/*"],
+    "packages": [
+        "packages/*"
+    ],
     "npmClient": "npm",
     "command": {
         "publish": {
-            "ignoreChanges": ["@ffra/fastify-xproject", "@ffra/fastify-examples", "@ffra/koa-examples"]
+            "ignoreChanges": [
+                "@ffra/fastify-xproject",
+                "@ffra/fastify-examples",
+                "@ffra/koa-examples"
+            ]
         },
         "run": {
-            "ignore": ["@ffra/fastify-xproject", "@ffra/fastify-examples", "@ffra/koa-examples", "@ffra/fastify-xproject"]
+            "ignore": [
+                "@ffra/fastify-xproject",
+                "@ffra/fastify-examples",
+                "@ffra/koa-examples",
+                "@ffra/fastify-xproject"
+            ]
         }
     },
-    "version": "3.0.1"
+    "version": "3.0.2"
 }
