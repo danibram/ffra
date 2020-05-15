@@ -5,7 +5,7 @@
         "clean": "rm -rf packages/*/build && rm -rf packages/*/node_modules    "
     },
     "devDependencies": {
-        "lerna": "^3.15.0"
+        "lerna": "^3.21.0"
     },
     "name": "ffra"
 }
