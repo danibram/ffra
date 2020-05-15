@@ -3,10 +3,10 @@
     "npmClient": "npm",
     "command": {
         "publish": {
-            "ignoreChanges": ["@ffra/fastify-xproject", "@ffra/fastify-examples", "@ffra/koa-examples", "@ffra/base"]
+            "ignoreChanges": ["@ffra/fastify-xproject", "@ffra/fastify-examples", "@ffra/koa-examples"]
         },
         "run": {
-            "ignore": ["@ffra/fastify-xproject", "@ffra/fastify-examples", "@ffra/koa-examples", "@ffra/base", "@ffra/fastify-xproject"]
+            "ignore": ["@ffra/fastify-xproject", "@ffra/fastify-examples", "@ffra/koa-examples", "@ffra/fastify-xproject"]
         }
     },
     "version": "3.0.1"
