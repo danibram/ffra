@@ -5,6 +5,7 @@ export class APIError extends Error {
     data: string = ''
     stack?: any
     errors?: any
+    isFFRA?: boolean = true
 
     constructor(
         msg: string | Error,
@@ -38,7 +39,7 @@ export class APIError extends Error {
             message: this.message,
             statusCode: this.statusCode,
             data: this.data,
-            stack: this.stack
+            stack: this.stack,
         }
     }
 }

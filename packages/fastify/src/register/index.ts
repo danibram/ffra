@@ -5,6 +5,7 @@ import * as fp from 'fastify-plugin'
 import * as fs from 'fs'
 import { IncomingMessage, Server, ServerResponse } from 'http'
 import * as path from 'path'
+import ErrorPlugin from '../errors'
 
 const deb = debug('@ffra/fastify/register')
 
@@ -16,6 +17,8 @@ declare module 'fastify' {
     > {}
 }
 const ffra = function (fastify, options, next) {
+    fastify.register(ErrorPlugin)
+
     fastify.decorateRequest('ctx', {
         hook: {},
         debug: null,
