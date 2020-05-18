@@ -1,6 +1,6 @@
 {
     "name": "@ffra/examples",
-    "version": "3.0.2",
+    "version": "3.0.3",
     "description": "",
     "main": "api.js",
     "scripts": {
@@ -12,12 +12,12 @@
     "dependencies": {
         "@ffra/autorun": "^1.0.2",
         "@ffra/error-handler-koa": "^1.0.2",
-        "@ffra/errors": "^3.0.2",
+        "@ffra/errors": "^3.0.3",
         "@ffra/koa-rest-mongoose": "^1.0.2",
         "@ffra/mongoose-reconnector": "^1.0.1",
-        "@ffra/route-designer": "^3.0.2",
-        "@ffra/service-mongoose": "^3.0.2",
-        "@ffra/service-nedb": "^3.0.2",
+        "@ffra/route-designer": "^3.0.3",
+        "@ffra/service-mongoose": "^3.0.3",
+        "@ffra/service-nedb": "^3.0.3",
         "@ffra/swagger": "^1.0.1",
         "@koa/cors": "^2.2.1",
         "config": "^1.29.1",
