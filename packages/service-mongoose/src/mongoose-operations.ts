@@ -85,23 +85,16 @@ export const find = async function (
         })
     }
 
-    const executeQuery = async function (total?) {
-        let data = await q.exec()
+    try {
+        let [data, total] = await Promise.all([
+            q.exec(),
+            count ? model.countDocuments(query) : Promise.resolve(undefined),
+        ])
+
         return {
             metadata: { total, skip, limit, sort },
             data,
         }
-    }
-
-    try {
-        let P = executeQuery
-        if (count) {
-            let total = await model.where(query).count().exec()
-            P = executeQuery.apply(null, total)
-        }
-
-        let data = await P()
-        return data
     } catch (e) {
         return errorHandler(e)
     }
