@@ -1,6 +1,6 @@
 {
     "name": "@ffra/fastify-examples",
-    "version": "3.0.3",
+    "version": "3.0.4",
     "description": "",
     "main": "api.js",
     "scripts": {
@@ -11,11 +11,11 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "@ffra/fastify": "^3.0.3",
+        "@ffra/fastify": "^3.0.4",
         "@ffra/mongoose-reconnector": "^1.0.1",
-        "@ffra/route-designer": "^3.0.3",
-        "@ffra/service-mongoose": "^3.0.3",
-        "@ffra/service-nedb": "^3.0.3",
+        "@ffra/route-designer": "^3.0.4",
+        "@ffra/service-mongoose": "^3.0.4",
+        "@ffra/service-nedb": "^3.0.4",
         "config": "^1.29.1",
         "debug": "^3.1.0",
         "fastify": "^2.0.1",
