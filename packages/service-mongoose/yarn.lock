@@ -49,6 +49,20 @@
   dependencies:
     arrify "^1.0.1"
 
+"@ffra/errors@^3.0.4":
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/@ffra/errors/-/errors-3.0.4.tgz#1b9d7ee9e22a67cf1bab04e45c7501d670a114a8"
+  integrity sha512-kYdaeGREXz0QJgwIwboS9xLLzpa9Xt7XUhOgmAs3oEx9itr5bGuSsOKu+gGUkWZHLRm1eqzRNt5lM3BnkHfGtw==
+  dependencies:
+    tslib "^1.8.1"
+
+"@ffra/service@^3.0.4":
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/@ffra/service/-/service-3.0.4.tgz#965e0573a87a35a9ecfa70605bd8780b7422d211"
+  integrity sha512-XuQRsVOpm1xmnEY+I38XEce1U7XUElOWthlLIsU0PhVSP/bFgWWk9fjOnNuJ+4xKhBPH6vr34zi1tx7ivCreLw==
+  dependencies:
+    tslib "^1.8.1"
+
 "@sindresorhus/df@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@sindresorhus/df/-/df-1.0.1.tgz#c69b66f52f6fcdd287c807df210305dbaf78500d"
@@ -3720,9 +3734,9 @@ lodash.isequal@^4.5.0:
   integrity sha1-QVxEePK8wwEgwizhDtMib30+GOA=
 
 lodash.merge@^4.6.0:
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.0.tgz#69884ba144ac33fe699737a6086deffadd0f89c5"
-  integrity sha1-aYhLoUSsM/5plzemCG3v+t0PicU=
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
+  integrity sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==
 
 lodash.template@^4.0.2:
   version "4.4.0"
@@ -5590,10 +5604,10 @@ typescript@2.4.1:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.4.1.tgz#c3ccb16ddaa0b2314de031e7e6fee89e5ba346bc"
   integrity sha1-w8yxbdqgsjFN4DHn5v7onlujRrw=
 
-typescript@^2.6.2:
-  version "2.6.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.6.2.tgz#3c5b6fd7f6de0914269027f03c0946758f7673a4"
-  integrity sha1-PFtv1/beCRQmkCfwPAlGdY92c6Q=
+typescript@^3.9.2:
+  version "3.9.7"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.7.tgz#98d600a5ebdc38f40cb277522f12dc800e9e25fa"
+  integrity sha512-BLbiRkiBzAwsjut4x/dsibSTB6yWpwT5qWmC2OfuCg3GgVQCSgMs4vEctYPhsaGtd0AeuuHMkjZ2h2WG8MSzRw==
 
 uglify-js@^2.6:
   version "2.8.29"
