@@ -49,6 +49,20 @@
   dependencies:
     arrify "^1.0.1"
 
+"@ffra/errors@^3.0.4":
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/@ffra/errors/-/errors-3.0.4.tgz#1b9d7ee9e22a67cf1bab04e45c7501d670a114a8"
+  integrity sha512-kYdaeGREXz0QJgwIwboS9xLLzpa9Xt7XUhOgmAs3oEx9itr5bGuSsOKu+gGUkWZHLRm1eqzRNt5lM3BnkHfGtw==
+  dependencies:
+    tslib "^1.8.1"
+
+"@ffra/route-designer@^3.0.4":
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/@ffra/route-designer/-/route-designer-3.0.4.tgz#f99a9d72685eeba9e8b7d18c9295612801480ee5"
+  integrity sha512-cHlK7YO98le+QtJoDiMFfPBxIoUUlpia4D/RWDDbroE9W8uAh8rXwSJHdWKEmcy6IWNOk+MMxxz+hvhiE7Jo9A==
+  dependencies:
+    tslib "^1.9.0"
+
 "@sindresorhus/df@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@sindresorhus/df/-/df-1.0.1.tgz#c69b66f52f6fcdd287c807df210305dbaf78500d"
@@ -2965,9 +2979,9 @@ home-or-tmp@^2.0.0:
     os-tmpdir "^1.0.1"
 
 hosted-git-info@^2.1.4, hosted-git-info@^2.5.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.5.0.tgz#6d60e34b3abbc8313062c3b798ef8d901a07af3c"
-  integrity sha512-pNgbURSuab90KbTqvRPsseaTxOJCZBD0a7t+haSN33piP9cCM4l0CqdzAif2hUqm716UovKB2ROmiabGAKVXyg==
+  version "2.8.9"
+  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.8.9.tgz#dffc0bf9a21c02209090f2aa69429e1414daf3f9"
+  integrity sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==
 
 http-errors@^1.6.1:
   version "1.7.3"
@@ -5442,6 +5456,11 @@ tslib@^1.8.1:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.8.1.tgz#6946af2d1d651a7b1863b531d6e5afa41aa44eac"
   integrity sha1-aUavLR1lGnsYY7Ux1uWvpBqkTqw=
 
+tslib@^1.9.0:
+  version "1.14.1"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
+  integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
+
 tslint-config-standard@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/tslint-config-standard/-/tslint-config-standard-7.0.0.tgz#47bbf25578ed2212456f892d51e1abe884a29f15"
@@ -5537,10 +5556,10 @@ typescript@2.4.1:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.4.1.tgz#c3ccb16ddaa0b2314de031e7e6fee89e5ba346bc"
   integrity sha1-w8yxbdqgsjFN4DHn5v7onlujRrw=
 
-typescript@^2.6.2:
-  version "2.6.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.6.2.tgz#3c5b6fd7f6de0914269027f03c0946758f7673a4"
-  integrity sha1-PFtv1/beCRQmkCfwPAlGdY92c6Q=
+typescript@^3.9.2:
+  version "3.9.9"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.9.tgz#e69905c54bc0681d0518bd4d587cc6f2d0b1a674"
+  integrity sha512-kdMjTiekY+z/ubJCATUPlRDl39vXYiMV9iyeMuEuXZh2we6zz80uovNN2WlAxmmdE/Z/YQe+EbOEXB5RHEED3w==
 
 uglify-js@^2.6:
   version "2.8.29"
