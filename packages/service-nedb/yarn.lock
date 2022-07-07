@@ -49,6 +49,20 @@
   dependencies:
     arrify "^1.0.1"
 
+"@ffra/errors@^3.0.4":
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/@ffra/errors/-/errors-3.0.4.tgz#1b9d7ee9e22a67cf1bab04e45c7501d670a114a8"
+  integrity sha512-kYdaeGREXz0QJgwIwboS9xLLzpa9Xt7XUhOgmAs3oEx9itr5bGuSsOKu+gGUkWZHLRm1eqzRNt5lM3BnkHfGtw==
+  dependencies:
+    tslib "^1.8.1"
+
+"@ffra/service@^3.0.4":
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/@ffra/service/-/service-3.0.4.tgz#965e0573a87a35a9ecfa70605bd8780b7422d211"
+  integrity sha512-XuQRsVOpm1xmnEY+I38XEce1U7XUElOWthlLIsU0PhVSP/bFgWWk9fjOnNuJ+4xKhBPH6vr34zi1tx7ivCreLw==
+  dependencies:
+    tslib "^1.8.1"
+
 "@sindresorhus/df@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@sindresorhus/df/-/df-1.0.1.tgz#c69b66f52f6fcdd287c807df210305dbaf78500d"
@@ -3920,9 +3934,9 @@ modify-values@^1.0.0:
   integrity sha1-4rbN65zhn5kxelNyLz2/XfXqqrI=
 
 moment@^2.6.0:
-  version "2.18.1"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
-  integrity sha1-w2GT3Tzhwu7SrbfIAtu8d6gbHA8=
+  version "2.29.4"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
+  integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
 
 mount-point@^1.0.0:
   version "1.2.0"
@@ -5496,10 +5510,10 @@ typescript@2.4.1:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.4.1.tgz#c3ccb16ddaa0b2314de031e7e6fee89e5ba346bc"
   integrity sha1-w8yxbdqgsjFN4DHn5v7onlujRrw=
 
-typescript@^2.6.2:
-  version "2.6.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.6.2.tgz#3c5b6fd7f6de0914269027f03c0946758f7673a4"
-  integrity sha1-PFtv1/beCRQmkCfwPAlGdY92c6Q=
+typescript@^3.9.2:
+  version "3.9.10"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.10.tgz#70f3910ac7a51ed6bef79da7800690b19bf778b8"
+  integrity sha512-w6fIxVE/H1PkLKcCPsFqKE7Kv7QUwhU8qQY2MueZXWx5cPZdwFupLgKK3vntcK98BtNHZtAF4LA/yl2a7k8R6Q==
 
 uglify-js@^2.6:
   version "2.8.29"
