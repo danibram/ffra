@@ -48,7 +48,7 @@
         "@ffra/errors": "^3.0.4",
         "@ffra/service": "^3.0.4",
         "debug": "^3.1.0",
-        "mongoose": "^4.13.6",
+        "mongoose": "^5.7.5",
         "tslib": "^1.8.1"
     },
     "devDependencies": {
