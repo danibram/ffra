@@ -22,7 +22,7 @@
         "koa": "^2.4.1",
         "koa-bodyparser": "^4.2.0",
         "koa-pino-logger": "^2.1.1",
-        "koa-qs": "^2.0.0",
+        "koa-qs": "^3.0.0",
         "koa-router": "^7.3.0",
         "koa-static": "^4.0.2",
         "mongoose": "^4.13.9",
