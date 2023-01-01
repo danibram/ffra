@@ -16,7 +16,7 @@
         "@ffra/route-designer": "^3.0.4",
         "@ffra/service-mongoose": "^3.0.4",
         "@ffra/service-nedb": "^3.0.4",
-        "config": "^1.29.1",
+        "config": "^3.3.8",
         "debug": "^3.1.0",
         "fastify": "^2.0.1",
         "fastify-blipp-log": "^1.0.0",
