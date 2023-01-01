@@ -20,7 +20,7 @@
         "@ffra/service-nedb": "^3.0.4",
         "@ffra/swagger": "^1.0.1",
         "@koa/cors": "^2.2.1",
-        "config": "^1.29.1",
+        "config": "^3.3.8",
         "debug": "^3.1.0",
         "koa": "^2.4.1",
         "koa-bodyparser": "^4.2.0",
